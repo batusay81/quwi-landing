@@ -5,25 +5,49 @@
 - **Tipografía**: Inter (Google Fonts)
 - **Iconos**: Lucide
 - **Hosting**: Firebase Hosting (proyecto `quwi-dev`)
-- **Dominio**: quwi.pe (NIC.pe)
+- **Dominio**: quwi.pe (registrado en NIC.pe)
 - **SSL**: Automático por Firebase Hosting
+- **Repo**: github.com/batusay81/quwi-landing
+- **Branches**: `main` (producción/deploy), `develop` (desarrollo)
 
 ---
 
 ## Estado Actual (2026-05-16)
 
+### Completado
 | Estado | Item |
 |--------|------|
-| ✅ Completado | Diseño en Claude Design (High Fidelity) |
-| ✅ Completado | Landing page responsive (1440px / 768px / 375px) |
-| ✅ Completado | Deploy en Firebase Hosting: https://quwi-dev.web.app |
-| ✅ Completado | Repo GitHub: github.com/batusay81/quwi-landing |
-| 📋 Pendiente | Conectar dominio `quwi.pe` en Firebase Console (registros DNS A) |
-| 📋 Pendiente | Configurar DNS en NIC.pe (registros A + CNAME www) |
-| 📋 Pendiente | Certificado SSL automático (post-DNS) |
-| 📋 Pendiente | Agregar `www.quwi.pe` como dominio adicional |
-| 📋 Pendiente | Completar registro desarrollador Meta con quwi.pe |
-| 📋 Pendiente | Poner Facebook app en modo Live |
+| ✅ | Diseño en Claude Design (High Fidelity, responsive) |
+| ✅ | Landing page responsive (1440px / 768px / 375px) |
+| ✅ | Deploy en Firebase Hosting: https://quwi-dev.web.app |
+| ✅ | Repo GitHub con branches main + develop |
+
+### Pendiente — Dominio y DNS
+| Estado | Item | Detalle |
+|--------|------|---------|
+| 📋 | Conectar dominio `quwi.pe` en Firebase Console | Hosting → Agregar dominio personalizado |
+| 📋 | Configurar DNS en NIC.pe | Registros A (IPs de Firebase) + CNAME www |
+| 📋 | Certificado SSL | Automático post-propagación DNS (~1-24h) |
+| 📋 | Agregar `www.quwi.pe` | Dominio adicional en Firebase Console |
+
+### Pendiente — Contenido y mejoras
+| Estado | Item | Detalle |
+|--------|------|---------|
+| 📋 | Capturas reales de la app | Reemplazar mockups con screenshots reales del app |
+| 📋 | Link real a Google Play | Actualizar href cuando la app esté publicada |
+| 📋 | Página Privacy Policy | Migrar de Netlify a quwi.pe/privacy o mantener link externo |
+| 📋 | Página Eliminación de Datos | Migrar de Netlify a quwi.pe/data-deletion o mantener link externo |
+| 📋 | Favicon optimizado | Generar favicon.ico + apple-touch-icon desde el ícono |
+| 📋 | Meta tags SEO | Open Graph, Twitter Cards, descripción para buscadores |
+| 📋 | Google Analytics / Firebase Analytics | Tracking de visitas y conversiones |
+| 📋 | Testimonios reales | Reemplazar placeholders con testimonios de criadores |
+
+### Pendiente — Meta/Facebook
+| Estado | Item | Detalle |
+|--------|------|---------|
+| 📋 | Completar registro desarrollador Meta | Usar quwi.pe como sitio web del negocio |
+| 📋 | Verificación de dominio en Meta | Agregar meta tag o DNS TXT de verificación |
+| 📋 | Facebook app modo Live | Requiere verificación de negocio aprobada |
 
 ---
 
@@ -33,9 +57,10 @@
 quwi-landing/
 ├── index.html          # Landing page principal (responsive)
 ├── assets/
-│   └── quwi-icon.png   # Ícono de la app
+│   └── quwi-icon.png   # Ícono de la app (1024x1024)
 ├── firebase.json        # Configuración Firebase Hosting
-└── .firebaserc          # Proyecto Firebase (quwi-dev)
+├── .firebaserc          # Proyecto Firebase (quwi-dev)
+└── CLAUDE.md            # Este archivo
 ```
 
 ---
@@ -70,16 +95,27 @@ quwi-landing/
 
 ---
 
+## Git Flow
+
+- **`main`**: Rama de producción. Solo merge desde develop cuando todo está probado. `firebase deploy` se hace desde main.
+- **`develop`**: Rama de desarrollo. Todos los cambios van aquí primero.
+
+---
+
 ## Deploy
 
 ```bash
+# Desde la rama main
+git checkout main
+git merge develop
 firebase deploy --only hosting
+git push origin main
 ```
 
 ---
 
 ## Relación con otros proyectos
 
-- **App Android**: `github.com/batusay81/quwi` (repo principal)
+- **App Android**: `github.com/batusay81/quwi` (repo principal, ubicación: `C:\Users\batus\AndroidStudioProjects\quwi`)
 - **Firebase Project**: `quwi-dev` (compartido con la app)
-- **Privacy Policy / Data Deletion**: Alojados en Netlify (links en footer)
+- **Privacy Policy / Data Deletion**: Actualmente en Netlify (pendiente migrar a quwi.pe)
