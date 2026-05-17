@@ -6,7 +6,7 @@
 - **Iconos**: Lucide
 - **Hosting**: Firebase Hosting (proyecto `quwi-dev`)
 - **Dominio**: quwi.pe (registrado en NIC.pe, DNS gestionado en Cloudflare)
-- **SSL**: Automático por Firebase Hosting (pendiente provisión para quwi.pe)
+- **SSL**: Activo — Firebase Hosting (quwi.pe + www.quwi.pe)
 - **Correo**: Google Workspace (soporte@quwi.pe) — MX, SPF, DKIM, DMARC en Cloudflare
 - **Repo**: github.com/batusay81/quwi-landing
 - **Branches**: `main` (producción/deploy), `develop` (desarrollo)
@@ -28,12 +28,10 @@
 | ✅ | DNS en Cloudflare: TXT `_acme-challenge` para SSL |
 | ✅ | Dominio `www.quwi.pe` agregado en Firebase (redirige a quwi.pe) |
 | ✅ | Actualización contenido: email soporte@quwi.pe, WhatsApp real, eliminación features offline |
-
-### Pendiente — Dominio y DNS
-| Estado | Item | Detalle |
-|--------|------|---------|
-| ⏳ | Certificado SSL quwi.pe | Firebase verificando TXT _acme-challenge (~1-24h), revisar 2026-05-17 |
-| ⏳ | Certificado SSL www.quwi.pe | En creación, depende de verificación de quwi.pe |
+| ✅ | Certificado SSL quwi.pe + www.quwi.pe activo y conectado |
+| ✅ | Seguridad: SSL Labs A+, Security Headers A+ |
+| ✅ | Seguridad: CSP, HSTS preload, SRI, X-Frame-Options, Permissions-Policy |
+| ✅ | HSTS Preload enviado a hstspreload.org |
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
