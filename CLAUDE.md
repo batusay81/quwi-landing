@@ -5,14 +5,15 @@
 - **Tipografía**: Inter (Google Fonts)
 - **Iconos**: Lucide
 - **Hosting**: Firebase Hosting (proyecto `quwi-dev`)
-- **Dominio**: quwi.pe (registrado en NIC.pe)
-- **SSL**: Automático por Firebase Hosting
+- **Dominio**: quwi.pe (registrado en NIC.pe, DNS gestionado en Cloudflare)
+- **SSL**: Automático por Firebase Hosting (pendiente provisión para quwi.pe)
+- **Correo**: Google Workspace (soporte@quwi.pe) — MX, SPF, DKIM, DMARC en Cloudflare
 - **Repo**: github.com/batusay81/quwi-landing
 - **Branches**: `main` (producción/deploy), `develop` (desarrollo)
 
 ---
 
-## Estado Actual (2026-05-16)
+## Estado Actual (2026-05-17)
 
 ### Completado
 | Estado | Item |
@@ -21,14 +22,18 @@
 | ✅ | Landing page responsive (1440px / 768px / 375px) |
 | ✅ | Deploy en Firebase Hosting: https://quwi-dev.web.app |
 | ✅ | Repo GitHub con branches main + develop |
+| ✅ | Dominio `quwi.pe` agregado en Firebase Console |
+| ✅ | DNS en Cloudflare: Registro A → `199.36.158.100` (Solo DNS) |
+| ✅ | DNS en Cloudflare: CNAME www → `quwi-dev.web.app` (Solo DNS) |
+| ✅ | DNS en Cloudflare: TXT `_acme-challenge` para SSL |
+| ✅ | Dominio `www.quwi.pe` agregado en Firebase (redirige a quwi.pe) |
+| ✅ | Actualización contenido: email soporte@quwi.pe, WhatsApp real, eliminación features offline |
 
 ### Pendiente — Dominio y DNS
 | Estado | Item | Detalle |
 |--------|------|---------|
-| 📋 | Conectar dominio `quwi.pe` en Firebase Console | Hosting → Agregar dominio personalizado |
-| 📋 | Configurar DNS en NIC.pe | Registros A (IPs de Firebase) + CNAME www |
-| 📋 | Certificado SSL | Automático post-propagación DNS (~1-24h) |
-| 📋 | Agregar `www.quwi.pe` | Dominio adicional en Firebase Console |
+| ⏳ | Certificado SSL quwi.pe | Firebase verificando TXT _acme-challenge (~1-24h), revisar 2026-05-17 |
+| ⏳ | Certificado SSL www.quwi.pe | En creación, depende de verificación de quwi.pe |
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
