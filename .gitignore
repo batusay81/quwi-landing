@@ -1,0 +1,5 @@
+# Firebase deploy cache
+.firebase/
+
+# Editor / workspace
+*.code-workspace
