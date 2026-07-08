@@ -7,7 +7,7 @@
 - **Hosting**: Firebase Hosting (proyecto `quwi-dev`)
 - **Dominio**: quwi.pe (registrado en NIC.pe, DNS gestionado en Cloudflare)
 - **SSL**: Activo — Firebase Hosting (quwi.pe + www.quwi.pe)
-- **Correo**: Google Workspace (soporte@quwi.pe) — MX, SPF, DKIM, DMARC en Cloudflare
+- **Correo**: Google Workspace (contacto@quwi.pe) — MX, SPF, DKIM, DMARC en Cloudflare
 - **Repo**: github.com/batusay81/quwi-landing
 - **Branches**: `main` (producción/deploy), `develop` (desarrollo)
 
