@@ -51,7 +51,7 @@
 | ❌ | Verificación de negocio Meta | Rechazada (2026-07): "no puede determinar que pertenezca a un negocio real". RUC 10409440067 (persona natural) |
 | ✅ | Datos legales en footer quwi.pe | Titular, RUC, dirección y teléfono agregados (requisito para reenviar verificación) |
 | 📋 | Reenviar verificación Meta | Con Ficha RUC actualizada (SUNAT, estado ACTIVO/HABIDO) + recibo de servicios con dirección de Comas |
-| 📋 | Verificación de dominio en Meta | Agregar meta tag o DNS TXT de verificación |
+| 🔄 | Verificación de dominio en Meta | Meta tag `facebook-domain-verification` publicada en el `<head>` — falta hacer clic en "Verificar dominio" en Business Manager |
 | 📋 | Facebook app modo Live | Requiere verificación de negocio aprobada. Facebook Login oculto en LoginScreen.kt mientras tanto |
 
 **Nota**: El rechazo NO afecta: Facebook Ads (activos), la página de Facebook, ni el login con Google / Google Play.
