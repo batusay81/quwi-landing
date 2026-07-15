@@ -34,6 +34,7 @@
 | ✅ | HSTS Preload enviado a hstspreload.org |
 | ✅ | Páginas legales en quwi.pe: `privacy.html`, `terms.html`, `data-deletion.html` (migradas desde Netlify, estilo compartido en `legal.css`) |
 | ✅ | Correo unificado a contacto@quwi.pe en todo el sitio (landing + páginas legales) |
+| ✅ | Centro de Ayuda en quwi.pe: `ayuda.html` (canales de atención + FAQ ampliado por categorías) |
 | ✅ | Fix íconos Lucide en producción: `.gitattributes` fuerza LF para que el hash CSP del script inline coincida (con CRLF el navegador lo bloqueaba) |
 
 ### Pendiente — Contenido y mejoras
@@ -68,7 +69,8 @@ quwi-landing/
 ├── privacy.html        # Política de Privacidad
 ├── terms.html          # Términos de Uso
 ├── data-deletion.html  # Eliminación de Cuenta y Datos
-├── legal.css           # Estilos compartidos de las páginas legales
+├── ayuda.html          # Centro de Ayuda (canales de atención + FAQ)
+├── legal.css           # Estilos compartidos de páginas legales y ayuda
 ├── assets/
 │   └── quwi-icon.png   # Ícono de la app (1024x1024)
 ├── firebase.json        # Configuración Firebase Hosting
