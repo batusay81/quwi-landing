@@ -13,7 +13,7 @@
 
 ---
 
-## Estado Actual (2026-05-17)
+## Estado Actual (2026-07-14)
 
 ### Completado
 | Estado | Item |
@@ -32,14 +32,16 @@
 | ✅ | Seguridad: SSL Labs A+, Security Headers A+ |
 | ✅ | Seguridad: CSP, HSTS preload, SRI, X-Frame-Options, Permissions-Policy |
 | ✅ | HSTS Preload enviado a hstspreload.org |
+| ✅ | Páginas legales en quwi.pe: `privacy.html`, `terms.html`, `data-deletion.html` (migradas desde Netlify, estilo compartido en `legal.css`) |
+| ✅ | Correo unificado a contacto@quwi.pe en todo el sitio (landing + páginas legales) |
+| ✅ | Fix íconos Lucide en producción: `.gitattributes` fuerza LF para que el hash CSP del script inline coincida (con CRLF el navegador lo bloqueaba) |
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
 |--------|------|---------|
 | 📋 | Capturas reales de la app | Reemplazar mockups con screenshots reales del app |
 | 📋 | Link real a Google Play | Actualizar href cuando la app esté publicada |
-| 📋 | Página Privacy Policy | Migrar de Netlify a quwi.pe/privacy o mantener link externo |
-| 📋 | Página Eliminación de Datos | Migrar de Netlify a quwi.pe/data-deletion o mantener link externo |
+| 📋 | Actualizar URLs legales en Google Play Console | Cambiar links de Netlify a quwi.pe/privacy.html y quwi.pe/data-deletion.html (política de privacidad y eliminación de cuenta) |
 | 📋 | Favicon optimizado | Generar favicon.ico + apple-touch-icon desde el ícono |
 | 📋 | Meta tags SEO | Open Graph, Twitter Cards, descripción para buscadores |
 | 📋 | Google Analytics / Firebase Analytics | Tracking de visitas y conversiones |
@@ -63,10 +65,15 @@
 ```
 quwi-landing/
 ├── index.html          # Landing page principal (responsive)
+├── privacy.html        # Política de Privacidad
+├── terms.html          # Términos de Uso
+├── data-deletion.html  # Eliminación de Cuenta y Datos
+├── legal.css           # Estilos compartidos de las páginas legales
 ├── assets/
 │   └── quwi-icon.png   # Ícono de la app (1024x1024)
 ├── firebase.json        # Configuración Firebase Hosting
 ├── .firebaserc          # Proyecto Firebase (quwi-dev)
+├── .gitattributes       # Fuerza LF (crítico para el hash CSP del script inline)
 └── CLAUDE.md            # Este archivo
 ```
 
@@ -98,7 +105,7 @@ quwi-landing/
 6. **Planes** — Gratuito vs Premium con precios
 7. **FAQ** — 5 preguntas frecuentes
 8. **CTA final** — Descarga en Google Play
-9. **Footer** — Logo, links legales (Privacy Policy, Eliminación de datos), copyright
+9. **Footer** — Logo, links legales (Privacy Policy, Términos de uso, Eliminación de datos), datos legales del negocio, copyright
 
 ---
 
@@ -125,4 +132,4 @@ git push origin main
 
 - **App Android**: `github.com/batusay81/quwi` (repo principal, ubicación: `C:\Users\batus\AndroidStudioProjects\quwi`)
 - **Firebase Project**: `quwi-dev` (compartido con la app)
-- **Privacy Policy / Data Deletion**: Actualmente en Netlify (pendiente migrar a quwi.pe)
+- **Privacy Policy / Data Deletion / Terms**: Migradas a quwi.pe (privacy.html, data-deletion.html, terms.html). Las páginas de Netlify quedan obsoletas — actualizar las URLs declaradas en Google Play Console
