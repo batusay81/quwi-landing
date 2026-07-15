@@ -1,0 +1,11 @@
+# Finales de linea LF obligatorios: el hash CSP del script inline
+# (sha256-NzDMz9...) se calculo sobre la version LF; con CRLF el
+# navegador bloquea el script y los iconos Lucide no se renderizan.
+* text=auto
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.png binary
+*.ico binary
