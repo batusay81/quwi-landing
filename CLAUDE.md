@@ -35,6 +35,8 @@
 | ✅ | Páginas legales en quwi.pe: `privacy.html`, `terms.html`, `data-deletion.html` (migradas desde Netlify, estilo compartido en `legal.css`) |
 | ✅ | Correo unificado a contacto@quwi.pe en todo el sitio (landing + páginas legales) |
 | ✅ | Centro de Ayuda en quwi.pe: `ayuda.html` (canales de atención + FAQ ampliado por categorías) |
+| ✅ | FAQ corregido: la app REQUIERE internet (no hay cache offline) — corregido en landing y ayuda.html |
+| ✅ | FAQ reordenado: abre con "¿Es segura mi información?" (respuesta positiva); pregunta de internet al final |
 | ✅ | Fix íconos Lucide en producción: `.gitattributes` fuerza LF para que el hash CSP del script inline coincida (con CRLF el navegador lo bloqueaba) |
 
 ### Pendiente — Contenido y mejoras
