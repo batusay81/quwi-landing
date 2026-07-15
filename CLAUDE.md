@@ -38,6 +38,7 @@
 | ✅ | FAQ corregido: la app REQUIERE internet (no hay cache offline) — corregido en landing y ayuda.html |
 | ✅ | FAQ reordenado: abre con "¿Es segura mi información?" (respuesta positiva); pregunta de internet al final |
 | ✅ | Fix íconos Lucide en producción: `.gitattributes` fuerza LF para que el hash CSP del script inline coincida (con CRLF el navegador lo bloqueaba) |
+| ✅ | Precio Premium mostrado como S/ 0.17 por cuy al mes (equivalente S/ 0.50 · trimestre en letra pequeña) — landing y ayuda.html |
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
