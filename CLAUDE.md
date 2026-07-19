@@ -42,6 +42,8 @@
 | ✅ | Datos legales (Titular, RUC, dirección) retirados del footer de las 5 páginas a pedido del usuario (2026-07-18) — se conserva teléfono y email |
 | ✅ | Botones flotantes de navegación en landing: subir (top-right, bajo el header) y bajar (bottom-right, ancla `#footer`) en verde claro `--accent`; sin JS (anclas + `scroll-behavior:smooth`) para no tocar el CSP. WhatsApp/Messenger reubicados encima del botón de bajar |
 | ✅ | Link de TikTok (https://www.tiktok.com/@quwi.app.gestion) en el ícono del footer de las 5 páginas — Instagram y YouTube siguen con `href="#"` pendientes |
+| ✅ | SEO on-page (2026-07-19): meta description en landing, canonical + Open Graph + Twitter Cards en las 5 páginas, robots.txt, sitemap.xml, JSON-LD (MobileApplication + FAQPage) en la landing |
+| ✅ | Imagen Open Graph 1200×630 (`assets/og-image.png`) generada desde `og-source.html` (HTML+CSS → captura con Edge headless; og-source.html excluido del deploy en firebase.json) |
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
@@ -50,7 +52,7 @@
 | 📋 | Link real a Google Play | Actualizar href cuando la app esté publicada |
 | 📋 | Actualizar URLs legales en Google Play Console | Cambiar links de Netlify a quwi.pe/privacy.html y quwi.pe/data-deletion.html (política de privacidad y eliminación de cuenta) |
 | 📋 | Favicon optimizado | Generar favicon.ico + apple-touch-icon desde el ícono |
-| 📋 | Meta tags SEO | Open Graph, Twitter Cards, descripción para buscadores |
+| 📋 | Google Search Console | Registrar quwi.pe y enviar sitemap.xml (requiere cuenta Google del usuario) |
 | 📋 | Google Analytics / Firebase Analytics | Tracking de visitas y conversiones |
 | 📋 | Testimonios reales | Reemplazar placeholders con testimonios de criadores |
 
@@ -77,8 +79,12 @@ quwi-landing/
 ├── data-deletion.html  # Eliminación de Cuenta y Datos
 ├── ayuda.html          # Centro de Ayuda (canales de atención + FAQ)
 ├── legal.css           # Estilos compartidos de páginas legales y ayuda
+├── og-source.html      # Fuente HTML de la imagen Open Graph (no se despliega)
+├── robots.txt          # Permite indexación + apunta al sitemap
+├── sitemap.xml         # Sitemap de las 5 páginas
 ├── assets/
-│   └── quwi-icon.png   # Ícono de la app (1024x1024)
+│   ├── quwi-icon.png   # Ícono de la app (1024x1024)
+│   └── og-image.png    # Imagen Open Graph 1200×630 (generada de og-source.html)
 ├── firebase.json        # Configuración Firebase Hosting
 ├── .firebaserc          # Proyecto Firebase (quwi-dev)
 ├── .gitattributes       # Fuerza LF (crítico para el hash CSP del script inline)

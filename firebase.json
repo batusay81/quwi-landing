@@ -7,7 +7,8 @@
       "**/node_modules/**",
       "README.md",
       "CLAUDE.md",
-      "SECURITY.md"
+      "SECURITY.md",
+      "og-source.html"
     ],
     "headers": [
       {
