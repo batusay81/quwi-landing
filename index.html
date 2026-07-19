@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="facebook-domain-verification" content="oyf106v5geztrubl1yqv52s2qsqm44" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'sha256-NzDMz9hAMaNurAcn64WvQkjhEor31Pccim6+cWHtEBM='; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://*.googletagmanager.com 'sha256-NzDMz9hAMaNurAcn64WvQkjhEor31Pccim6+cWHtEBM=' 'sha256-597oIruW2dtRhduMTPtPMOzIXpeqYfdSMwMfb8n4TuI='; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
 <title>Quwi — Gestión inteligente de cuyes</title>
 <meta name="description" content="La app más completa del Perú para criadores de cuyes. Controla nacimientos, ventas, sanidad, peso y más desde tu celular. Gratis para empezar, hecha en Perú.">
 <link rel="canonical" href="https://quwi.pe/">
@@ -23,11 +23,20 @@
 <meta name="twitter:title" content="Quwi — Gestiona tu criadero de cuyes desde tu celular">
 <meta name="twitter:description" content="La app más completa del Perú para criadores de cuyes. Gratis para empezar.">
 <meta name="twitter:image" content="https://quwi.pe/assets/og-image.png">
-<link rel="icon" href="assets/quwi-icon.png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" integrity="sha384-hJnF5AwidE18GSWTAGHv3ByzzvfNZ1Tcx5y1UUV3WkauuMCEzBJBMSwSt/PUPXnM" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VV6B0G2F3P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VV6B0G2F3P');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

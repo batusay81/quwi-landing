@@ -44,25 +44,26 @@
 | ✅ | Link de TikTok (https://www.tiktok.com/@quwi.app.gestion) en el ícono del footer de las 5 páginas — Instagram y YouTube siguen con `href="#"` pendientes |
 | ✅ | SEO on-page (2026-07-19): meta description en landing, canonical + Open Graph + Twitter Cards en las 5 páginas, robots.txt, sitemap.xml, JSON-LD (MobileApplication + FAQPage) en la landing |
 | ✅ | Imagen Open Graph 1200×630 (`assets/og-image.png`) generada desde `og-source.html` (HTML+CSS → captura con Edge headless; og-source.html excluido del deploy en firebase.json) |
+| ✅ | Google Search Console: quwi.pe verificado (propiedad de Dominio vía TXT en Cloudflare) y sitemap enviado (2026-07-19, por el usuario) |
+| ✅ | URLs legales actualizadas en Google Play Console: quwi.pe/privacy.html y quwi.pe/data-deletion.html (2026-07-19, por el usuario) |
+| ✅ | Capturas de la app en la landing (mejorables a futuro) y link de Google Play funcionando |
+| ✅ | Favicon optimizado (2026-07-19): `favicon.ico` (16/32/48) + `assets/favicon-32.png` + `assets/apple-touch-icon.png` (180×180, fondo blanco), generados con .NET System.Drawing desde quwi-icon.png |
+| ✅ | Google Analytics GA4 (2026-07-19): gtag.js con ID `G-VV6B0G2F3P` (app web "Quwi Landing" creada en Firebase) en las 5 páginas. CSP actualizado (meta + firebase.json) con googletagmanager/google-analytics y hash del snippet inline `'sha256-597oIruW2dtRhduMTPtPMOzIXpeqYfdSMwMfb8n4TuI='` — el snippet debe mantenerse byte a byte idéntico (LF) o cambiar el hash |
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
 |--------|------|---------|
-| 📋 | Capturas reales de la app | Reemplazar mockups con screenshots reales del app |
-| 📋 | Link real a Google Play | Actualizar href cuando la app esté publicada |
-| 📋 | Actualizar URLs legales en Google Play Console | Cambiar links de Netlify a quwi.pe/privacy.html y quwi.pe/data-deletion.html (política de privacidad y eliminación de cuenta) |
-| 📋 | Favicon optimizado | Generar favicon.ico + apple-touch-icon desde el ícono |
-| 📋 | Google Search Console | Registrar quwi.pe y enviar sitemap.xml (requiere cuenta Google del usuario) |
-| 📋 | Google Analytics / Firebase Analytics | Tracking de visitas y conversiones |
 | 📋 | Testimonios reales | Reemplazar placeholders con testimonios de criadores |
+| 📋 | Mejorar capturas de la app | Ya hay capturas; reemplazar por versiones más pulidas a futuro |
+| 📋 | Links de Instagram y YouTube en footer | Siguen con `href="#"` — agregar cuando existan las cuentas |
 
 ### Pendiente — Meta/Facebook
 | Estado | Item | Detalle |
 |--------|------|---------|
 | ❌ | Verificación de negocio Meta | Rechazada (2026-07): "no puede determinar que pertenezca a un negocio real". RUC 10409440067 (persona natural) |
 | ⚠️ | Datos legales en footer quwi.pe | RETIRADOS (2026-07-18) a pedido del usuario. Si se reenvía la verificación Meta, posiblemente haya que volver a publicarlos temporalmente |
-| 📋 | Reenviar verificación Meta | Con Ficha RUC actualizada (SUNAT, estado ACTIVO/HABIDO) + recibo de servicios con dirección de Comas |
-| 🔄 | Verificación de dominio en Meta | Meta tag `facebook-domain-verification` publicada en el `<head>` — falta hacer clic en "Verificar dominio" en Business Manager |
+| ✅ | Reenviar verificación Meta | Reenviada (2026-07-19, por el usuario) — esperar resolución de Meta |
+| ✅ | Verificación de dominio en Meta | Completada (2026-07-19, por el usuario) |
 | 📋 | Facebook app modo Live | Requiere verificación de negocio aprobada. Facebook Login oculto en LoginScreen.kt mientras tanto |
 
 **Nota**: El rechazo NO afecta: Facebook Ads (activos), la página de Facebook, ni el login con Google / Google Play.
@@ -82,9 +83,12 @@ quwi-landing/
 ├── og-source.html      # Fuente HTML de la imagen Open Graph (no se despliega)
 ├── robots.txt          # Permite indexación + apunta al sitemap
 ├── sitemap.xml         # Sitemap de las 5 páginas
+├── favicon.ico         # Favicon multi-tamaño 16/32/48 (generado de quwi-icon.png)
 ├── assets/
 │   ├── quwi-icon.png   # Ícono de la app (1024x1024)
-│   └── og-image.png    # Imagen Open Graph 1200×630 (generada de og-source.html)
+│   ├── og-image.png    # Imagen Open Graph 1200×630 (generada de og-source.html)
+│   ├── favicon-32.png  # Favicon PNG 32×32
+│   └── apple-touch-icon.png  # 180×180 fondo blanco para iOS
 ├── firebase.json        # Configuración Firebase Hosting
 ├── .firebaserc          # Proyecto Firebase (quwi-dev)
 ├── .gitattributes       # Fuerza LF (crítico para el hash CSP del script inline)
