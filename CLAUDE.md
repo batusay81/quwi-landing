@@ -4,7 +4,7 @@
 - **Frontend**: HTML5 + CSS3 + JavaScript vanilla
 - **Tipografía**: Inter (Google Fonts)
 - **Iconos**: Lucide
-- **Hosting**: Firebase Hosting (proyecto `quwi-prod` — default; `quwi-dev` como alias `dev` mientras migra el dominio)
+- **Hosting**: Firebase Hosting (proyecto `quwi-prod` — default; `quwi-dev` queda como alias `dev`, ya sin uso)
 - **Dominio**: quwi.pe (registrado en NIC.pe, DNS gestionado en Cloudflare)
 - **SSL**: Activo — Firebase Hosting (quwi.pe + www.quwi.pe)
 - **Correo**: Google Workspace (contacto@quwi.pe) — MX, SPF, DKIM, DMARC en Cloudflare
@@ -20,11 +20,11 @@
 |--------|------|
 | ✅ | Diseño en Claude Design (High Fidelity, responsive) |
 | ✅ | Landing page responsive (1440px / 768px / 375px) |
-| ✅ | Deploy en Firebase Hosting: https://quwi-dev.web.app |
+| ✅ | Deploy en Firebase Hosting: https://quwi-prod.web.app |
 | ✅ | Repo GitHub con branches main + develop |
 | ✅ | Dominio `quwi.pe` agregado en Firebase Console |
 | ✅ | DNS en Cloudflare: Registro A → `199.36.158.100` (Solo DNS) |
-| ✅ | DNS en Cloudflare: CNAME www → `quwi-dev.web.app` (Solo DNS) |
+| ✅ | DNS en Cloudflare: CNAME www → `quwi-prod.web.app` (Solo DNS) |
 | ✅ | DNS en Cloudflare: TXT `_acme-challenge` para SSL |
 | ✅ | Dominio `www.quwi.pe` agregado en Firebase (redirige a quwi.pe) |
 | ✅ | Actualización contenido: email soporte@quwi.pe, WhatsApp real, eliminación features offline |
@@ -50,11 +50,11 @@
 | ✅ | Favicon optimizado (2026-07-19): `favicon.ico` (16/32/48) + `assets/favicon-32.png` + `assets/apple-touch-icon.png` (180×180, fondo blanco), generados con .NET System.Drawing desde quwi-icon.png |
 | ✅ | Google Analytics GA4 (2026-07-19): gtag.js con ID `G-53BECQ1JXV` (app web "Quwi Landing" en quwi-prod) en las 5 páginas. CSP actualizado (meta + firebase.json) con googletagmanager/google-analytics y hash del snippet inline `'sha256-Pw8rx2dLMjeSbxDBRtkmPGVt8sx0vr1kUyirQMOOjBI='` — el snippet debe mantenerse byte a byte idéntico (LF) o cambiar el hash |
 | ✅ | Migración a quwi-prod (2026-07-19): `.firebaserc` default → quwi-prod (aliases `prod`/`dev`), deploy activo en https://quwi-prod.web.app. También existe app web en quwi-dev (`G-VV6B0G2F3P`, ya no usada) |
+| ✅ | Migración del dominio quwi.pe a quwi-prod COMPLETADA (2026-07-19): dominio quitado de quwi-dev, validado en quwi-prod, SSL emitido, propagación de Firebase terminada. Verificado: https://quwi.pe responde 200 con la landing y www.quwi.pe redirige 301 a quwi.pe. quwi-dev ya no recibe deploys |
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
 |--------|------|---------|
-| 🔄 | Migrar dominio quwi.pe a quwi-prod | AVANZADO (2026-07-19 noche): dominio quitado de quwi-dev, agregado y VALIDADO en quwi-prod (TXT en Cloudflare OK), DNS A → 199.36.158.100 correcto, certificado SSL emitido. FALTA: propagación de Firebase — quwi.pe devuelve 404 "Site Not Found" hasta que Firebase termine de asociar el dominio (minutos a 24h). MAÑANA: (1) verificar que https://quwi.pe cargue la landing y que www.quwi.pe redirija; (2) si sigue en 404 tras 24h, revisar estado del dominio en Firebase Console → quwi-prod → Hosting; (3) al confirmar, quitar el paso temporal de deploy doble a quwi-dev de la sección Deploy |
 | 📋 | Testimonios reales | Reemplazar placeholders con testimonios de criadores |
 | 📋 | Mejorar capturas de la app | Ya hay capturas; reemplazar por versiones más pulidas a futuro |
 | 📋 | Links de Instagram y YouTube en footer | Siguen con `href="#"` — agregar cuando existan las cuentas |
@@ -92,7 +92,7 @@ quwi-landing/
 │   ├── favicon-32.png  # Favicon PNG 32×32
 │   └── apple-touch-icon.png  # 180×180 fondo blanco para iOS
 ├── firebase.json        # Configuración Firebase Hosting
-├── .firebaserc          # Proyecto Firebase (quwi-dev)
+├── .firebaserc          # Proyecto Firebase (quwi-prod default; alias dev → quwi-dev)
 ├── .gitattributes       # Fuerza LF (crítico para el hash CSP del script inline)
 └── CLAUDE.md            # Este archivo
 ```
@@ -143,7 +143,6 @@ quwi-landing/
 git checkout main
 git merge develop
 firebase deploy --only hosting            # despliega a quwi-prod (default)
-firebase deploy --only hosting --project dev   # TEMPORAL: mantener quwi-dev igual hasta migrar el dominio quwi.pe
 git push origin main
 ```
 
@@ -152,5 +151,5 @@ git push origin main
 ## Relación con otros proyectos
 
 - **App Android**: `github.com/batusay81/quwi` (repo principal, ubicación: `C:\Users\batus\AndroidStudioProjects\quwi`)
-- **Firebase Project**: `quwi-prod` (compartido con la app en producción); `quwi-dev` fue el hosting anterior y aún tiene el dominio quwi.pe conectado hasta completar la migración
+- **Firebase Project**: `quwi-prod` (compartido con la app en producción); `quwi-dev` fue el hosting anterior, ya sin dominio ni deploys
 - **Privacy Policy / Data Deletion / Terms**: Migradas a quwi.pe (privacy.html, data-deletion.html, terms.html). Las páginas de Netlify quedan obsoletas — actualizar las URLs declaradas en Google Play Console
