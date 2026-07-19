@@ -41,6 +41,7 @@
 | ✅ | Precio Premium mostrado como S/ 0.17 por cuy al mes (equivalente S/ 0.50 · trimestre en letra pequeña) — landing y ayuda.html |
 | ✅ | Datos legales (Titular, RUC, dirección) retirados del footer de las 5 páginas a pedido del usuario (2026-07-18) — se conserva teléfono y email |
 | ✅ | Botones flotantes de navegación en landing: subir (top-right, bajo el header) y bajar (bottom-right, ancla `#footer`) en verde claro `--accent`; sin JS (anclas + `scroll-behavior:smooth`) para no tocar el CSP. WhatsApp/Messenger reubicados encima del botón de bajar |
+| ✅ | Link de TikTok (https://www.tiktok.com/@quwi.app.gestion) en el ícono del footer de las 5 páginas — Instagram y YouTube siguen con `href="#"` pendientes |
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
