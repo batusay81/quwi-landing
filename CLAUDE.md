@@ -13,7 +13,7 @@
 
 ---
 
-## Estado Actual (2026-07-18)
+## Estado Actual (2026-07-19)
 
 ### Completado
 | Estado | Item |
@@ -54,7 +54,7 @@
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
 |--------|------|---------|
-| 🔄 | Migrar dominio quwi.pe a quwi-prod | En Firebase Console: (1) quwi-dev → Hosting → eliminar quwi.pe y www.quwi.pe; (2) quwi-prod → Hosting → agregar dominio quwi.pe (+ www), seguir verificación TXT en Cloudflare; (3) mientras tanto quwi.pe sigue sirviendo desde quwi-dev con el mismo contenido. Luego de migrar, deploy solo a quwi-prod |
+| 🔄 | Migrar dominio quwi.pe a quwi-prod | AVANZADO (2026-07-19 noche): dominio quitado de quwi-dev, agregado y VALIDADO en quwi-prod (TXT en Cloudflare OK), DNS A → 199.36.158.100 correcto, certificado SSL emitido. FALTA: propagación de Firebase — quwi.pe devuelve 404 "Site Not Found" hasta que Firebase termine de asociar el dominio (minutos a 24h). MAÑANA: (1) verificar que https://quwi.pe cargue la landing y que www.quwi.pe redirija; (2) si sigue en 404 tras 24h, revisar estado del dominio en Firebase Console → quwi-prod → Hosting; (3) al confirmar, quitar el paso temporal de deploy doble a quwi-dev de la sección Deploy |
 | 📋 | Testimonios reales | Reemplazar placeholders con testimonios de criadores |
 | 📋 | Mejorar capturas de la app | Ya hay capturas; reemplazar por versiones más pulidas a futuro |
 | 📋 | Links de Instagram y YouTube en footer | Siguen con `href="#"` — agregar cuando existan las cuentas |
