@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "quwi-dev"
+    "default": "quwi-prod",
+    "prod": "quwi-prod",
+    "dev": "quwi-dev"
   }
 }
