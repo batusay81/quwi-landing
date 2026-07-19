@@ -39,6 +39,8 @@
 | ✅ | FAQ reordenado: abre con "¿Es segura mi información?" (respuesta positiva); pregunta de internet al final |
 | ✅ | Fix íconos Lucide en producción: `.gitattributes` fuerza LF para que el hash CSP del script inline coincida (con CRLF el navegador lo bloqueaba) |
 | ✅ | Precio Premium mostrado como S/ 0.17 por cuy al mes (equivalente S/ 0.50 · trimestre en letra pequeña) — landing y ayuda.html |
+| ✅ | Datos legales (Titular, RUC, dirección) retirados del footer de las 5 páginas a pedido del usuario (2026-07-18) — se conserva teléfono y email |
+| ✅ | Botones flotantes de navegación en landing: subir (top-right, bajo el header) y bajar (bottom-right, ancla `#footer`) en verde claro `--accent`; sin JS (anclas + `scroll-behavior:smooth`) para no tocar el CSP. WhatsApp/Messenger reubicados encima del botón de bajar |
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
@@ -55,7 +57,7 @@
 | Estado | Item | Detalle |
 |--------|------|---------|
 | ❌ | Verificación de negocio Meta | Rechazada (2026-07): "no puede determinar que pertenezca a un negocio real". RUC 10409440067 (persona natural) |
-| ✅ | Datos legales en footer quwi.pe | Titular, RUC, dirección y teléfono agregados (requisito para reenviar verificación) |
+| ⚠️ | Datos legales en footer quwi.pe | RETIRADOS (2026-07-18) a pedido del usuario. Si se reenvía la verificación Meta, posiblemente haya que volver a publicarlos temporalmente |
 | 📋 | Reenviar verificación Meta | Con Ficha RUC actualizada (SUNAT, estado ACTIVO/HABIDO) + recibo de servicios con dirección de Comas |
 | 🔄 | Verificación de dominio en Meta | Meta tag `facebook-domain-verification` publicada en el `<head>` — falta hacer clic en "Verificar dominio" en Business Manager |
 | 📋 | Facebook app modo Live | Requiere verificación de negocio aprobada. Facebook Login oculto en LoginScreen.kt mientras tanto |
@@ -110,7 +112,7 @@ quwi-landing/
 6. **Planes** — Gratuito vs Premium con precios
 7. **FAQ** — 5 preguntas frecuentes
 8. **CTA final** — Descarga en Google Play
-9. **Footer** — Logo, links legales (Privacy Policy, Términos de uso, Eliminación de datos), datos legales del negocio, copyright
+9. **Footer** — Logo, links legales (Privacy Policy, Términos de uso, Eliminación de datos), teléfono y email de contacto, copyright
 
 ---
 

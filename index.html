@@ -543,9 +543,25 @@ p{margin:0}
 .foot-bottom .flag i:nth-child(1),.foot-bottom .flag i:nth-child(3){background:#D91023}
 .foot-bottom .flag i:nth-child(2){background:#fff}
 
+/* Botones flotantes de navegación (subir / bajar) */
+html{scroll-behavior:smooth}
+.scroll-btn{
+  position:fixed;right:22px;z-index:998;
+  width:48px;height:48px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--accent);color:#fff;
+  box-shadow:0 8px 24px rgba(129,199,132,.45), 0 2px 6px rgba(0,0,0,.15);
+  transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.scroll-btn svg{width:24px;height:24px}
+.scroll-btn:hover{background:var(--secondary);transform:translateY(-2px);box-shadow:0 12px 30px rgba(76,175,80,.5), 0 3px 8px rgba(0,0,0,.2)}
+.scroll-btn:active{transform:translateY(0)}
+.scroll-up{top:88px}
+.scroll-down{bottom:22px}
+
 /* Botones flotantes de contacto */
 .float-contacts{
-  position:fixed;right:22px;bottom:22px;z-index:999;
+  position:fixed;right:22px;bottom:84px;z-index:999;
   display:flex;flex-direction:column;align-items:flex-end;gap:14px;
 }
 .float-btn{
@@ -571,12 +587,16 @@ p{margin:0}
 }
 @keyframes wa-pulse{0%{transform:scale(1);opacity:.55}70%{transform:scale(2.1);opacity:0}100%{opacity:0}}
 @media(max-width:768px){
-  .float-contacts{right:16px;bottom:16px;gap:12px}
+  .scroll-btn{right:16px;width:44px;height:44px}
+  .scroll-btn svg{width:22px;height:22px}
+  .scroll-up{top:84px}
+  .scroll-down{bottom:16px}
+  .float-contacts{right:16px;bottom:72px;gap:12px}
   .float-btn{height:56px;padding:0;width:56px;justify-content:center;border-radius:50%}
   .float-btn .fc-label{display:none}
   .wa-float::before{left:13px;top:13px}
 }
-@media(prefers-reduced-motion:reduce){.wa-float::before{animation:none}}
+@media(prefers-reduced-motion:reduce){.wa-float::before{animation:none}html{scroll-behavior:auto}}
 
 </style>
 </head>
@@ -1055,7 +1075,7 @@ p{margin:0}
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer class="footer">
+<footer class="footer" id="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div>
@@ -1099,8 +1119,6 @@ p{margin:0}
     </div>
     <div class="legal-info">
       <strong>Quwi — Gestión de Cuyes</strong><br>
-      Titular: Hernan Vasquez Bentura · RUC: 10409440067<br>
-      Dirección: Jr. Arnaldo Márquez 384, Comas, Lima, Perú<br>
       Teléfono: <a href="tel:+51930108426">+51 930 108 426</a> · Email: <a href="mailto:contacto@quwi.pe">contacto@quwi.pe</a>
     </div>
     <div class="foot-bottom">
@@ -1111,6 +1129,17 @@ p{margin:0}
     </div>
   </div>
 </footer>
+
+<a class="scroll-btn scroll-up" href="#" aria-label="Subir al inicio de la página">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="m18 15-6-6-6 6"/>
+  </svg>
+</a>
+<a class="scroll-btn scroll-down" href="#footer" aria-label="Bajar al final de la página">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="m6 9 6 6 6-6"/>
+  </svg>
+</a>
 
 <div class="float-contacts">
   <a class="float-btn msgr-float" href="https://m.me/61590884367605"
