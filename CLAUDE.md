@@ -56,7 +56,9 @@
 - FREE **hasta 1000 cuyes** (hero, planes, FAQ, ayuda.html); Premium **S/ 29.90 por 3 meses** (pago único) + S/ 0.50/cuy/trimestre al vencer solo si supera límites FREE; Premium: hasta 10 granjas, sin publicidad, estadísticas avanzadas, soporte; Reportes PDF y Ranking = módulos extra.
 - Quitados: "4.8 en Google Play", "cientos de criadores", testimonios ficticios (reemplazados por sección "En tu galpón" con funciones reales), roles Trabajador/Veterinario (módulo pausado) en landing y ayuda.
 - 12 alertas (antes 8), registro con Google/Facebook/correo, CTA Premium → WhatsApp.
-- Pendiente: privacy.html/terms.html aún mencionan roles (texto legal, decide el usuario); mockup del hero ("Don Lucho", 1,284 cuyes) es ilustrativo; píxeles Meta/TikTok + Clarity (necesitan IDs).
+- Ícono 2.0 (cuy de cuerpo entero, mismo de Play/Meta): `assets/quwi-cuy.png` (512 px, reemplaza a quwi-icon.png — nombre nuevo por la caché immutable de 1 año) + favicon.ico/favicon-32/apple-touch-icon regenerados + `assets/og-image-v2.png` (sin cifras de ejemplo, "Gratis hasta 1000 cuyes").
+- Roles Trabajador/Veterinario COMENTADOS (no borrados) en privacy.html (§5 ahora "Acceso a tu Cuenta"), terms.html (§4.3), ayuda.html (FAQ) e index.html (plan Premium) — buscar "PAUSADO (1-nov-2026)" para reactivarlos.
+- Pendiente: mockup del hero ("Don Lucho", 1,284 cuyes) es ilustrativo; píxeles Meta/TikTok + Clarity (necesitan IDs).
 
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |

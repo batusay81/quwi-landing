@@ -15,14 +15,14 @@
 <meta property="og:url" content="https://quwi.pe/">
 <meta property="og:title" content="Quwi — Gestiona tu criadero de cuyes desde tu celular">
 <meta property="og:description" content="La app más completa del Perú para criadores de cuyes. Nacimientos, ventas, sanidad, peso y más. Gratis para empezar.">
-<meta property="og:image" content="https://quwi.pe/assets/og-image.png">
+<meta property="og:image" content="https://quwi.pe/assets/og-image-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Quwi — app de gestión de criaderos de cuyes, hecha en Perú">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Quwi — Gestiona tu criadero de cuyes desde tu celular">
 <meta name="twitter:description" content="La app más completa del Perú para criadores de cuyes. Gratis para empezar.">
-<meta name="twitter:image" content="https://quwi.pe/assets/og-image.png">
+<meta name="twitter:image" content="https://quwi.pe/assets/og-image-v2.png">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
@@ -45,7 +45,7 @@
       "@type": "MobileApplication",
       "name": "Quwi",
       "url": "https://quwi.pe/",
-      "image": "https://quwi.pe/assets/quwi-icon.png",
+      "image": "https://quwi.pe/assets/quwi-cuy.png",
       "description": "App de gestión integral para criadores de cuyes: nacimientos, ventas, sanidad, peso, reportes y más. Hecha en Perú.",
       "operatingSystem": "Android 8.0 o superior",
       "applicationCategory": "BusinessApplication",
@@ -217,7 +217,7 @@ p{margin:0}
 .header .bar{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:-.02em}
 .brand .mark{width:38px;height:38px;border-radius:11px;background:#fff;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
-.brand .mark img{width:34px;height:34px;object-fit:contain}
+.brand .mark img{width:100%;height:100%;object-fit:cover}
 .nav{display:flex;align-items:center;gap:32px}
 .nav a{font-size:15px;font-weight:500;color:#3A3A3A;transition:color .15s ease}
 .nav a:hover{color:var(--primary)}
@@ -292,7 +292,7 @@ p{margin:0}
 .ps-greet small{font-size:11px;color:#7B7B7B;font-weight:500}
 .ps-greet b{font-size:15px;color:#1B1B1B;font-weight:700}
 .ps-avatar{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;border:1px solid #E0E5DD;overflow:hidden}
-.ps-avatar img{width:30px;height:30px}
+.ps-avatar img{width:100%;height:100%;object-fit:cover}
 .ps-kpis{padding:0 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .kpi{background:#fff;border-radius:14px;padding:12px;border:1px solid #E8EBE5}
 .kpi small{font-size:10px;color:#7B7B7B;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
@@ -575,7 +575,7 @@ p{margin:0}
 .cta-final p{color:rgba(255,255,255,.85);font-size:17.5px;margin-top:14px;max-width:540px}
 .cta-final .ctas{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
 .cta-final .cuy{display:flex;justify-content:center;position:relative;z-index:1}
-.cta-final .cuy img{width:240px;height:240px;filter:drop-shadow(0 16px 30px rgba(0,0,0,.3))}
+.cta-final .cuy img{width:240px;height:240px;border-radius:22%;filter:drop-shadow(0 16px 30px rgba(0,0,0,.3))}
 @media (max-width:900px){
   .cta-final .card{grid-template-columns:1fr;padding:48px 32px;gap:24px;text-align:left}
   .cta-final h2{font-size:34px}
@@ -684,7 +684,7 @@ html{scroll-behavior:smooth}
 <header class="header">
   <div class="wrap bar">
     <a href="#" class="brand">
-      <span class="mark"><img src="assets/quwi-icon.png" alt=""></span>
+      <span class="mark"><img src="assets/quwi-cuy.png" alt=""></span>
       <span>Quwi</span>
     </a>
     <nav class="nav">
@@ -764,7 +764,7 @@ html{scroll-behavior:smooth}
             </div>
             <div class="ps-header">
               <div class="ps-greet"><small>Buenos días,</small><b>Don Lucho</b></div>
-              <div class="ps-avatar"><img src="assets/quwi-icon.png" alt=""></div>
+              <div class="ps-avatar"><img src="assets/quwi-cuy.png" alt=""></div>
             </div>
             <div class="ps-kpis">
               <div class="kpi"><small>Total cuyes</small><b>1,284</b><span class="trend"><i data-lucide="arrow-up" style="width:11px;height:11px"></i>+24 esta sem.</span></div>
@@ -1003,6 +1003,9 @@ html{scroll-behavior:smooth}
           <li><i data-lucide="check"></i>Sin publicidad</li>
           <li><i data-lucide="check"></i>Estadísticas avanzadas</li>
           <li><i data-lucide="check"></i>Soporte prioritario por WhatsApp</li>
+          <!-- PAUSADO (1-nov-2026): módulo de roles Trabajador/Veterinario en pausa. Descomentar al reactivarlo.
+          <li><i data-lucide="check"></i>Roles: Criador, Trabajador, Veterinario</li>
+          -->
           <li><i data-lucide="plus"></i>Módulos extra: Reportes PDF y Ranking de reproductores</li>
         </ul>
         <div class="pay-note">
@@ -1116,7 +1119,7 @@ html{scroll-behavior:smooth}
         </div>
       </div>
       <div class="cuy">
-        <img src="assets/quwi-icon.png" alt="Quwi — cuy peruano">
+        <img src="assets/quwi-cuy.png" alt="Quwi — cuy peruano">
       </div>
     </div>
   </div>
@@ -1128,7 +1131,7 @@ html{scroll-behavior:smooth}
     <div class="footer-grid">
       <div>
         <a href="#" class="brand">
-          <span class="mark"><img src="assets/quwi-icon.png" alt=""></span>
+          <span class="mark"><img src="assets/quwi-cuy.png" alt=""></span>
           <span>Quwi</span>
         </a>
         <p class="tagline">Gestión inteligente de cuyes. Diseñado y hecho en el Perú para criadores del Perú.</p>
