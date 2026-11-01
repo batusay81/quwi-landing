@@ -52,6 +52,12 @@
 | ✅ | Migración a quwi-prod (2026-07-19): `.firebaserc` default → quwi-prod (aliases `prod`/`dev`), deploy activo en https://quwi-prod.web.app. También existe app web en quwi-dev (`G-VV6B0G2F3P`, ya no usada) |
 | ✅ | Migración del dominio quwi.pe a quwi-prod COMPLETADA (2026-07-19): dominio quitado de quwi-dev, validado en quwi-prod, SSL emitido, propagación de Firebase terminada. Verificado: https://quwi.pe responde 200 con la landing y www.quwi.pe redirige 301 a quwi.pe. quwi-dev ya no recibe deploys |
 
+### 2026-11-01 — Contenido alineado con Quwi 2.0 (rama develop, SIN deploy)
+- FREE **hasta 1000 cuyes** (hero, planes, FAQ, ayuda.html); Premium **S/ 29.90 por 3 meses** (pago único) + S/ 0.50/cuy/trimestre al vencer solo si supera límites FREE; Premium: hasta 10 granjas, sin publicidad, estadísticas avanzadas, soporte; Reportes PDF y Ranking = módulos extra.
+- Quitados: "4.8 en Google Play", "cientos de criadores", testimonios ficticios (reemplazados por sección "En tu galpón" con funciones reales), roles Trabajador/Veterinario (módulo pausado) en landing y ayuda.
+- 12 alertas (antes 8), registro con Google/Facebook/correo, CTA Premium → WhatsApp.
+- Pendiente: privacy.html/terms.html aún mencionan roles (texto legal, decide el usuario); mockup del hero ("Don Lucho", 1,284 cuyes) es ilustrativo; píxeles Meta/TikTok + Clarity (necesitan IDs).
+
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
 |--------|------|---------|
