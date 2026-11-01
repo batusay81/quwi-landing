@@ -33,6 +33,21 @@
     ttq.page();
   }(window, document, 'ttq');
 
+  // ---- Píxel de Meta (conjunto de datos "Quwi Landing", separado del de la app) ----
+  var META_PIXEL = '29087160587634943';
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v; s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s);
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  window.fbq('init', META_PIXEL);
+  window.fbq('track', 'PageView');
+
+  // Equivalencia con los eventos estándar de Meta
+  var META_EVENTOS = { clic_google_play: 'Lead', clic_whatsapp: 'Contact', clic_messenger: 'Contact', vio_planes: 'ViewContent' };
+
   // Equivalencia de nuestros eventos con los eventos estándar de TikTok
   var TT_EVENTOS = { clic_google_play: 'Download', clic_whatsapp: 'Contact', clic_messenger: 'Contact', vio_planes: 'ViewContent' };
 
@@ -40,6 +55,7 @@
   function evento(nombre, datos) {
     try { if (typeof window.gtag === 'function') window.gtag('event', nombre, datos || {}); } catch (e) {}
     try { if (typeof window.clarity === 'function') window.clarity('event', nombre); } catch (e) {}
+    try { if (window.fbq && META_EVENTOS[nombre]) window.fbq('track', META_EVENTOS[nombre], { content_name: nombre }); } catch (e) {}
     try { if (window.ttq && TT_EVENTOS[nombre]) window.ttq.track(TT_EVENTOS[nombre], { content_id: nombre, content_type: 'product', content_name: nombre }); } catch (e) {}
   }
   window.quwiEvento = evento;
