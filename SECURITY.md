@@ -130,3 +130,6 @@ La landing es estática y tiene una superficie de ataque mínima. Los principale
 ### Cache
 - `/` (raíz) servía `Cache-Control: max-age=3600` (los `*.html` ya tenían no-cache) → agregado header `no-cache` para `/`.
 - Imágenes con `immutable` 1 año → al cambiar una imagen, usar NOMBRE NUEVO (ej. `quwi-cuy.png`, `og-image-v2.png`).
+
+### CodeQL #1 (2026-11-01, CORREGIDA)
+- `js/incomplete-url-substring-sanitization` en `assets/tracking.js`: clasificaba los clics buscando el texto del dominio dentro de la URL. Ahora compara `new URL(a.href).hostname` exacto (`play.google.com`, `wa.me`, `api.whatsapp.com`, `m.me`). No era explotable (solo decide qué evento de analítica se envía). Alerta en estado *fixed* tras el análisis de main.
