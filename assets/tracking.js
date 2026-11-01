@@ -63,12 +63,14 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
-    var href = a.getAttribute('href') || '';
-    if (href.indexOf('play.google.com') !== -1) {
+    // Se compara el DOMINIO exacto del enlace (no un texto dentro de la URL: CodeQL js/incomplete-url-substring-sanitization)
+    var host;
+    try { host = new URL(a.href, window.location.href).hostname.toLowerCase(); } catch (err) { return; }
+    if (host === 'play.google.com') {
       evento('clic_google_play', { ubicacion: a.className || 'enlace' });
-    } else if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) {
+    } else if (host === 'wa.me' || host === 'api.whatsapp.com') {
       evento('clic_whatsapp', { ubicacion: a.className || 'enlace' });
-    } else if (href.indexOf('m.me') !== -1 || href.indexOf('messenger') !== -1) {
+    } else if (host === 'm.me') {
       evento('clic_messenger', {});
     }
   }, true);
