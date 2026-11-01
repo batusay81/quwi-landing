@@ -40,7 +40,7 @@
   function evento(nombre, datos) {
     try { if (typeof window.gtag === 'function') window.gtag('event', nombre, datos || {}); } catch (e) {}
     try { if (typeof window.clarity === 'function') window.clarity('event', nombre); } catch (e) {}
-    try { if (window.ttq && TT_EVENTOS[nombre]) window.ttq.track(TT_EVENTOS[nombre], { content_name: nombre }); } catch (e) {}
+    try { if (window.ttq && TT_EVENTOS[nombre]) window.ttq.track(TT_EVENTOS[nombre], { content_id: nombre, content_type: 'product', content_name: nombre }); } catch (e) {}
   }
   window.quwiEvento = evento;
 
