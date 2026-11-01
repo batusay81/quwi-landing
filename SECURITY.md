@@ -18,7 +18,7 @@ Revisión basada en OWASP Top 10:2021 aplicada a la landing page estática.
 | A06 | Vulnerable/Outdated Components | Medio | CORREGIDO | Lucide CDN sin SRI (Subresource Integrity). Agregado hash SHA-384 + crossorigin. |
 | A07 | Identification & Auth Failures | N/A | OK | No hay autenticación en la landing. |
 | A08 | Software & Data Integrity | Medio | CORREGIDO | Script externo (unpkg) sin verificación de integridad. SRI aplicado. |
-| A09 | Security Logging & Monitoring | Bajo | PENDIENTE | No hay analytics ni logging de errores. Pendiente Firebase Analytics. |
+| A09 | Security Logging & Monitoring | Bajo | OK | GA4, Microsoft Clarity y píxeles de TikTok/Meta (2026-11-01). |
 | A10 | Server-Side Request Forgery | N/A | OK | No hay backend ni llamadas server-side. |
 
 ---
@@ -104,9 +104,29 @@ La landing es estática y tiene una superficie de ataque mínima. Los principale
 
 | Estado | Item | Prioridad |
 |--------|------|-----------|
-| PENDIENTE | Firebase Analytics / logging de errores | Baja |
-| PENDIENTE | Test SSL con ssllabs.com post-certificado | Media |
-| PENDIENTE | Test headers con securityheaders.com post-deploy | Media |
-| PENDIENTE | Monitoreo de integridad SRI si se actualiza Lucide | Baja |
-| PENDIENTE | Política de Privacidad real (link actual apunta a #) | Media |
-| PENDIENTE | Términos de uso reales (link actual apunta a #) | Media |
+| OK (2026-11-01) | Analítica: GA4 + Clarity + píxeles TikTok/Meta | Baja |
+| OK (2026-07) | Test SSL (SSL Labs A+) y headers (securityheaders.com A+) | Media |
+| PENDIENTE | Monitoreo de integridad SRI si se actualiza Lucide (regenerar hash) | Baja |
+| OK (2026-07) | Política de Privacidad, Términos y Eliminación de datos reales en quwi.pe | Media |
+| PENDIENTE | Repetir securityheaders.com / observatory.mozilla.org tras cambios de CSP | Baja |
+
+---
+
+## Revisión 2026-11-01 (landing 2.0 + medición)
+
+### Incidente: el deploy publicaba carpetas internas (A05, CORREGIDO)
+- **Hallazgo**: `https://quwi.pe/.git/config`, `/.git/HEAD`, `/.claude/settings.local.json` y `/quwi-landing.code-workspace` respondían 200 → con herramientas tipo git-dumper se podía bajar el historial completo del repo.
+- **Causa**: el ignore `**/.*` de `firebase.json` excluye archivos con punto, pero NO el contenido de carpetas con punto (`.git/objects/...`). El deploy subía ~267 archivos.
+- **Fix**: ignore `**/.*/**`, `.git/**`, `.claude/**`, `.firebase/**`, `*.code-workspace` → el deploy sube 14 archivos; verificado 404 en las 4 URLs.
+- **Impacto**: bajo — el repo en GitHub es público y gitleaks (39 commits) no encontró secretos.
+- **Control permanente**: tras cada deploy, `curl -s -o /dev/null -w "%{http_code}" https://quwi.pe/.git/HEAD` debe dar **404**.
+
+### Scripts de terceros (A08)
+- Medición en `assets/tracking.js` (archivo propio → sin hashes nuevos en el CSP): Clarity `z7204tq61f`, píxel TikTok `DBJSA6JC77UF910647VG`, píxel Meta `29087160587634943`, más gtag (GA4).
+- Estos scripts NO pueden llevar SRI (los proveedores los cambian sin aviso). Mitigación: CSP con lista cerrada de dominios (`*.clarity.ms`, `c.bing.com`, `analytics.tiktok.com`, `*.tiktok.com`, `*.tiktokw.us`, `connect.facebook.net`, `www.facebook.com`, Google) y sin `unsafe-inline` en scripts.
+- Sin formularios en la landing → coincidencias avanzadas (AAM de TikTok / Meta) APAGADAS; sin Events API ni API de conversiones.
+- El CSP vive en DOS lugares que deben coincidir: `<meta http-equiv>` de las 5 páginas y el header de `firebase.json`.
+
+### Cache
+- `/` (raíz) servía `Cache-Control: max-age=3600` (los `*.html` ya tenían no-cache) → agregado header `no-cache` para `/`.
+- Imágenes con `immutable` 1 año → al cambiar una imagen, usar NOMBRE NUEVO (ej. `quwi-cuy.png`, `og-image-v2.png`).

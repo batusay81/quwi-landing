@@ -38,7 +38,7 @@
 | ✅ | FAQ corregido: la app REQUIERE internet (no hay cache offline) — corregido en landing y ayuda.html |
 | ✅ | FAQ reordenado: abre con "¿Es segura mi información?" (respuesta positiva); pregunta de internet al final |
 | ✅ | Fix íconos Lucide en producción: `.gitattributes` fuerza LF para que el hash CSP del script inline coincida (con CRLF el navegador lo bloqueaba) |
-| ✅ | Precio Premium mostrado como S/ 0.17 por cuy al mes (equivalente S/ 0.50 · trimestre en letra pequeña) — landing y ayuda.html |
+| ✅ | ~~Precio Premium S/ 0.17 por cuy al mes~~ → SUPERADO 2026-11-01: Premium S/ 29.90 por 3 meses (ver sección 2026-11-01) |
 | ✅ | Datos legales (Titular, RUC, dirección) retirados del footer de las 5 páginas a pedido del usuario (2026-07-18) — se conserva teléfono y email |
 | ✅ | Botones flotantes de navegación en landing: subir (top-right, bajo el header) y bajar (bottom-right, ancla `#footer`) en verde claro `--accent`; sin JS (anclas + `scroll-behavior:smooth`) para no tocar el CSP. WhatsApp/Messenger reubicados encima del botón de bajar |
 | ✅ | Link de TikTok (https://www.tiktok.com/@quwi.app.gestion) en el ícono del footer de las 5 páginas — Instagram y YouTube siguen con `href="#"` pendientes |
@@ -67,20 +67,20 @@
 ### Pendiente — Contenido y mejoras
 | Estado | Item | Detalle |
 |--------|------|---------|
-| 📋 | Testimonios reales | Reemplazar placeholders con testimonios de criadores |
+| 📋 | Testimonios reales | Testimonios ficticios RETIRADOS 2026-11-01 (sección "En tu galpón"); agregar casos reales con permiso firmado |
 | 📋 | Mejorar capturas de la app | Ya hay capturas; reemplazar por versiones más pulidas a futuro |
 | 📋 | Links de Instagram y YouTube en footer | Siguen con `href="#"` — agregar cuando existan las cuentas |
 
 ### Pendiente — Meta/Facebook
 | Estado | Item | Detalle |
 |--------|------|---------|
-| ❌ | Verificación de negocio Meta | Rechazada (2026-07): "no puede determinar que pertenezca a un negocio real". RUC 10409440067 (persona natural) |
+| ✅ | Verificación de negocio Meta | Rechazada en 2026-07, luego APROBADA tras reenvío (app de Meta en modo Live desde v1.0.7) |
 | ⚠️ | Datos legales en footer quwi.pe | RETIRADOS (2026-07-18) a pedido del usuario. Si se reenvía la verificación Meta, posiblemente haya que volver a publicarlos temporalmente |
 | ✅ | Reenviar verificación Meta | Reenviada (2026-07-19, por el usuario) — esperar resolución de Meta |
 | ✅ | Verificación de dominio en Meta | Completada (2026-07-19, por el usuario) |
-| 📋 | Facebook app modo Live | Requiere verificación de negocio aprobada. Facebook Login oculto en LoginScreen.kt mientras tanto |
+| ✅ | Facebook app modo Live | Live; permisos email/public_profile con acceso avanzado APROBADOS por Meta 2026-11-01 → login con Facebook abierto a todos (app vc16) |
 
-**Nota**: El rechazo NO afecta: Facebook Ads (activos), la página de Facebook, ni el login con Google / Google Play.
+**Nota (2026-11-01)**: todo lo de Meta está resuelto. El píxel de Meta de la landing (`29087160587634943`) es un conjunto de datos SEPARADO del de la app.
 
 ---
 
